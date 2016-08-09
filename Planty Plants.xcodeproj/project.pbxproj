@@ -1,0 +1,856 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A3AB2C5120C4AC08AC552BB /* Pods_PlantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00133257D55470A191A49B97 /* Pods_PlantsTests.framework */; };
+		A4E7410E30155C88E8E086F6 /* Pods_Plants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50708D8AB4D2512D349466D4 /* Pods_Plants.framework */; };
+		CEFB4DA5242DB5864E2485DA /* Pods_PlantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727145E85FACF431D59144A2 /* Pods_PlantsUITests.framework */; };
+		E3041CFD1D3EC5CA00F2E1FF /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3041CFC1D3EC5CA00F2E1FF /* GameManager.swift */; };
+		E3041D011D401E4E00F2E1FF /* levelUp.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3041D001D401E4E00F2E1FF /* levelUp.sks */; };
+		E3079F651D35559800A393C2 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3079F641D35559800A393C2 /* Plant.swift */; };
+		E3079F691D357DF100A393C2 /* cereusPeruvianus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3079F681D357DF100A393C2 /* cereusPeruvianus.swift */; };
+		E3079F6B1D357E0600A393C2 /* hensAndChicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3079F6A1D357E0600A393C2 /* hensAndChicks.swift */; };
+		E335BA0B1D41336E00B62A5C /* levelUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335BA0A1D41336E00B62A5C /* levelUp.swift */; };
+		E351CD5F1D5A4E4C003DFD60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E351CD5E1D5A4E4C003DFD60 /* Assets.xcassets */; };
+		E371D4031D55551700902816 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371D4021D55551700902816 /* Chartboost.framework */; };
+		E371D4051D55570500902816 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371D4041D55570500902816 /* UIKit.framework */; };
+		E371D4071D55571000902816 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371D4061D55571000902816 /* CoreGraphics.framework */; };
+		E371D4091D55571900902816 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371D4081D55571900902816 /* Foundation.framework */; };
+		E371D40B1D55572100902816 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371D40A1D55572100902816 /* StoreKit.framework */; };
+		E3756F001D529C1200075366 /* frfr.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3756EFE1D529C1200075366 /* frfr.sks */; };
+		E3756F011D529C1200075366 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = E3756EFF1D529C1200075366 /* bokeh.png */; };
+		E3756F031D529C2D00075366 /* levelupeffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3756F021D529C2D00075366 /* levelupeffect.sks */; };
+		E3756F051D529C3F00075366 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3756F041D529C3F00075366 /* MyParticle.sks */; };
+		E3756F071D529C4E00075366 /* sfvsb.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3756F061D529C4E00075366 /* sfvsb.sks */; };
+		E3756F091D529D8200075366 /* fert effect.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3756F081D529D8200075366 /* fert effect.sks */; };
+		E3756F101D5406B900075366 /* correctsoil.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F0A1D5406B900075366 /* correctsoil.caf */; };
+		E3756F111D5406B900075366 /* light.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F0B1D5406B900075366 /* light.caf */; };
+		E3756F121D5406B900075366 /* water.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F0C1D5406B900075366 /* water.caf */; };
+		E3756F131D5406B900075366 /* correctcrow.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F0D1D5406B900075366 /* correctcrow.caf */; };
+		E3756F141D5406B900075366 /* seed click.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F0E1D5406B900075366 /* seed click.caf */; };
+		E3756F151D5406B900075366 /* complete.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F0F1D5406B900075366 /* complete.caf */; };
+		E3756F181D5500C700075366 /* dry.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F161D5500C700075366 /* dry.caf */; };
+		E3756F191D5500C700075366 /* break.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F171D5500C700075366 /* break.caf */; };
+		E3756F1B1D550A8F00075366 /* correctbreak.caf in Resources */ = {isa = PBXBuildFile; fileRef = E3756F1A1D550A8F00075366 /* correctbreak.caf */; };
+		E378EBF51D528381009A416F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E378EBF31D528381009A416F /* spark.png */; };
+		E378EBF71D528546009A416F /* showerEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = E378EBF61D528546009A416F /* showerEffect.sks */; };
+		E3ADDEEB1D34221500E36034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDEEA1D34221500E36034 /* AppDelegate.swift */; };
+		E3ADDEED1D34221500E36034 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3ADDEEC1D34221500E36034 /* GameScene.sks */; };
+		E3ADDEEF1D34221500E36034 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDEEE1D34221500E36034 /* GameScene.swift */; };
+		E3ADDEF11D34221500E36034 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDEF01D34221500E36034 /* GameViewController.swift */; };
+		E3ADDEF41D34221500E36034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ADDEF21D34221500E36034 /* Main.storyboard */; };
+		E3ADDEF91D34221500E36034 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ADDEF71D34221500E36034 /* LaunchScreen.storyboard */; };
+		E3ADDF041D34221500E36034 /* PlantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDF031D34221500E36034 /* PlantsTests.swift */; };
+		E3ADDF0F1D34221500E36034 /* PlantsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDF0E1D34221500E36034 /* PlantsUITests.swift */; };
+		E3ADDF1D1D342F0100E36034 /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDF1C1D342F0100E36034 /* MSButtonNode.swift */; };
+		E3B6D6091D42A0D600938072 /* threeConveyers.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3B6D6081D42A0D600938072 /* threeConveyers.sks */; };
+		E3B6D60B1D42D72500938072 /* aloe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6D60A1D42D72500938072 /* aloe.swift */; };
+		E3B6D60D1D42D73800938072 /* englishIvy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6D60C1D42D73800938072 /* englishIvy.swift */; };
+		E3B6D60F1D42D8FD00938072 /* jadePlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6D60E1D42D8FD00938072 /* jadePlant.swift */; };
+		E3B6D6111D42D91300938072 /* rubberTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6D6101D42D91300938072 /* rubberTree.swift */; };
+		E3FE885A1D46C2E700839026 /* Garden.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3FE88591D46C2E700839026 /* Garden.sks */; };
+		E3FE885C1D46C6B500839026 /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FE885B1D46C6B500839026 /* Garden.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E3ADDF001D34221500E36034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3ADDEDF1D34221500E36034 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3ADDEE61D34221500E36034;
+			remoteInfo = Plants;
+		};
+		E3ADDF0B1D34221500E36034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3ADDEDF1D34221500E36034 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3ADDEE61D34221500E36034;
+			remoteInfo = Plants;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00133257D55470A191A49B97 /* Pods_PlantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50708D8AB4D2512D349466D4 /* Pods_Plants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65A825F48CDA1E8F14CF31EB /* Pods-PlantsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlantsUITests/Pods-PlantsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		727145E85FACF431D59144A2 /* Pods_PlantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		756065658BFEDEEF772FCCB0 /* Pods-PlantsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlantsUITests/Pods-PlantsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A9AF46ABEA051D1206589249 /* Pods-Plants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plants.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plants/Pods-Plants.release.xcconfig"; sourceTree = "<group>"; };
+		C1FC26EC1DF0029B5B368ECE /* Pods-PlantsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlantsTests/Pods-PlantsTests.release.xcconfig"; sourceTree = "<group>"; };
+		C26A51887219B069B7410699 /* Pods-Plants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plants.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plants/Pods-Plants.debug.xcconfig"; sourceTree = "<group>"; };
+		C3B2289D6CD1B16F463DBC57 /* Pods-PlantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlantsTests/Pods-PlantsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E3041CFC1D3EC5CA00F2E1FF /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		E3041D001D401E4E00F2E1FF /* levelUp.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = levelUp.sks; sourceTree = "<group>"; };
+		E3079F641D35559800A393C2 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		E3079F681D357DF100A393C2 /* cereusPeruvianus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = cereusPeruvianus.swift; path = ../cereusPeruvianus.swift; sourceTree = "<group>"; };
+		E3079F6A1D357E0600A393C2 /* hensAndChicks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hensAndChicks.swift; path = ../hensAndChicks.swift; sourceTree = "<group>"; };
+		E335BA0A1D41336E00B62A5C /* levelUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = levelUp.swift; sourceTree = "<group>"; };
+		E351CD5E1D5A4E4C003DFD60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E371D4021D55551700902816 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
+		E371D4041D55570500902816 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E371D4061D55571000902816 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E371D4081D55571900902816 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E371D40A1D55572100902816 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E371D40C1D55575D00902816 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		E3756EFE1D529C1200075366 /* frfr.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = frfr.sks; sourceTree = "<group>"; };
+		E3756EFF1D529C1200075366 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
+		E3756F021D529C2D00075366 /* levelupeffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = levelupeffect.sks; sourceTree = "<group>"; };
+		E3756F041D529C3F00075366 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		E3756F061D529C4E00075366 /* sfvsb.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sfvsb.sks; sourceTree = "<group>"; };
+		E3756F081D529D8200075366 /* fert effect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "fert effect.sks"; sourceTree = "<group>"; };
+		E3756F0A1D5406B900075366 /* correctsoil.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = correctsoil.caf; sourceTree = "<group>"; };
+		E3756F0B1D5406B900075366 /* light.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = light.caf; sourceTree = "<group>"; };
+		E3756F0C1D5406B900075366 /* water.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = water.caf; sourceTree = "<group>"; };
+		E3756F0D1D5406B900075366 /* correctcrow.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = correctcrow.caf; sourceTree = "<group>"; };
+		E3756F0E1D5406B900075366 /* seed click.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "seed click.caf"; sourceTree = "<group>"; };
+		E3756F0F1D5406B900075366 /* complete.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = complete.caf; sourceTree = "<group>"; };
+		E3756F161D5500C700075366 /* dry.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dry.caf; sourceTree = "<group>"; };
+		E3756F171D5500C700075366 /* break.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = break.caf; sourceTree = "<group>"; };
+		E3756F1A1D550A8F00075366 /* correctbreak.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = correctbreak.caf; sourceTree = "<group>"; };
+		E378EBF31D528381009A416F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		E378EBF61D528546009A416F /* showerEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = showerEffect.sks; sourceTree = "<group>"; };
+		E3ADDEE71D34221500E36034 /* Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plants.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3ADDEEA1D34221500E36034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E3ADDEEC1D34221500E36034 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		E3ADDEEE1D34221500E36034 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		E3ADDEF01D34221500E36034 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E3ADDEF31D34221500E36034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E3ADDEF81D34221500E36034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E3ADDEFA1D34221500E36034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3ADDEFF1D34221500E36034 /* PlantsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3ADDF031D34221500E36034 /* PlantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTests.swift; sourceTree = "<group>"; };
+		E3ADDF051D34221500E36034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3ADDF0A1D34221500E36034 /* PlantsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3ADDF0E1D34221500E36034 /* PlantsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsUITests.swift; sourceTree = "<group>"; };
+		E3ADDF101D34221500E36034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3ADDF1C1D342F0100E36034 /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
+		E3B6D6081D42A0D600938072 /* threeConveyers.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = threeConveyers.sks; sourceTree = "<group>"; };
+		E3B6D60A1D42D72500938072 /* aloe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aloe.swift; sourceTree = "<group>"; };
+		E3B6D60C1D42D73800938072 /* englishIvy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = englishIvy.swift; sourceTree = "<group>"; };
+		E3B6D60E1D42D8FD00938072 /* jadePlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jadePlant.swift; sourceTree = "<group>"; };
+		E3B6D6101D42D91300938072 /* rubberTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rubberTree.swift; sourceTree = "<group>"; };
+		E3FE88591D46C2E700839026 /* Garden.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Garden.sks; sourceTree = "<group>"; };
+		E3FE885B1D46C6B500839026 /* Garden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3ADDEE41D34221500E36034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E371D40B1D55572100902816 /* StoreKit.framework in Frameworks */,
+				E371D4091D55571900902816 /* Foundation.framework in Frameworks */,
+				E371D4071D55571000902816 /* CoreGraphics.framework in Frameworks */,
+				E371D4051D55570500902816 /* UIKit.framework in Frameworks */,
+				E371D4031D55551700902816 /* Chartboost.framework in Frameworks */,
+				A4E7410E30155C88E8E086F6 /* Pods_Plants.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3ADDEFC1D34221500E36034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A3AB2C5120C4AC08AC552BB /* Pods_PlantsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3ADDF071D34221500E36034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEFB4DA5242DB5864E2485DA /* Pods_PlantsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03F19FAABE043F55ED21682E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C26A51887219B069B7410699 /* Pods-Plants.debug.xcconfig */,
+				A9AF46ABEA051D1206589249 /* Pods-Plants.release.xcconfig */,
+				C3B2289D6CD1B16F463DBC57 /* Pods-PlantsTests.debug.xcconfig */,
+				C1FC26EC1DF0029B5B368ECE /* Pods-PlantsTests.release.xcconfig */,
+				65A825F48CDA1E8F14CF31EB /* Pods-PlantsUITests.debug.xcconfig */,
+				756065658BFEDEEF772FCCB0 /* Pods-PlantsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		411BFC66EBF2845075764AFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50708D8AB4D2512D349466D4 /* Pods_Plants.framework */,
+				00133257D55470A191A49B97 /* Pods_PlantsTests.framework */,
+				727145E85FACF431D59144A2 /* Pods_PlantsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3ADDEDE1D34221500E36034 = {
+			isa = PBXGroup;
+			children = (
+				E371D40C1D55575D00902816 /* BridgingHeader.h */,
+				E371D40A1D55572100902816 /* StoreKit.framework */,
+				E371D4081D55571900902816 /* Foundation.framework */,
+				E371D4061D55571000902816 /* CoreGraphics.framework */,
+				E371D4041D55570500902816 /* UIKit.framework */,
+				E3041D001D401E4E00F2E1FF /* levelUp.sks */,
+				E335BA0A1D41336E00B62A5C /* levelUp.swift */,
+				E3B6D6081D42A0D600938072 /* threeConveyers.sks */,
+				E3ADDEE91D34221500E36034 /* Plants */,
+				E3ADDF021D34221500E36034 /* PlantsTests */,
+				E3ADDF0D1D34221500E36034 /* PlantsUITests */,
+				E3ADDEE81D34221500E36034 /* Products */,
+				03F19FAABE043F55ED21682E /* Pods */,
+				411BFC66EBF2845075764AFE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E3ADDEE81D34221500E36034 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3ADDEE71D34221500E36034 /* Plants.app */,
+				E3ADDEFF1D34221500E36034 /* PlantsTests.xctest */,
+				E3ADDF0A1D34221500E36034 /* PlantsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3ADDEE91D34221500E36034 /* Plants */ = {
+			isa = PBXGroup;
+			children = (
+				E3079F641D35559800A393C2 /* Plant.swift */,
+				E3079F6A1D357E0600A393C2 /* hensAndChicks.swift */,
+				E3079F681D357DF100A393C2 /* cereusPeruvianus.swift */,
+				E3B6D60A1D42D72500938072 /* aloe.swift */,
+				E3B6D60C1D42D73800938072 /* englishIvy.swift */,
+				E3B6D60E1D42D8FD00938072 /* jadePlant.swift */,
+				E3B6D6101D42D91300938072 /* rubberTree.swift */,
+				E3ADDF1C1D342F0100E36034 /* MSButtonNode.swift */,
+				E3ADDEEA1D34221500E36034 /* AppDelegate.swift */,
+				E3ADDEEC1D34221500E36034 /* GameScene.sks */,
+				E3756F161D5500C700075366 /* dry.caf */,
+				E3756F171D5500C700075366 /* break.caf */,
+				E3756F0A1D5406B900075366 /* correctsoil.caf */,
+				E3756F0B1D5406B900075366 /* light.caf */,
+				E3756F0C1D5406B900075366 /* water.caf */,
+				E371D4021D55551700902816 /* Chartboost.framework */,
+				E3756F1A1D550A8F00075366 /* correctbreak.caf */,
+				E3756F0D1D5406B900075366 /* correctcrow.caf */,
+				E3756F0E1D5406B900075366 /* seed click.caf */,
+				E3756F0F1D5406B900075366 /* complete.caf */,
+				E3756EFE1D529C1200075366 /* frfr.sks */,
+				E3756EFF1D529C1200075366 /* bokeh.png */,
+				E3756F021D529C2D00075366 /* levelupeffect.sks */,
+				E3756F041D529C3F00075366 /* MyParticle.sks */,
+				E3756F061D529C4E00075366 /* sfvsb.sks */,
+				E3756F081D529D8200075366 /* fert effect.sks */,
+				E378EBF31D528381009A416F /* spark.png */,
+				E378EBF61D528546009A416F /* showerEffect.sks */,
+				E351CD5E1D5A4E4C003DFD60 /* Assets.xcassets */,
+				E3041CFC1D3EC5CA00F2E1FF /* GameManager.swift */,
+				E3ADDEEE1D34221500E36034 /* GameScene.swift */,
+				E3FE88591D46C2E700839026 /* Garden.sks */,
+				E3FE885B1D46C6B500839026 /* Garden.swift */,
+				E3ADDEF01D34221500E36034 /* GameViewController.swift */,
+				E3ADDEF21D34221500E36034 /* Main.storyboard */,
+				E3ADDEF71D34221500E36034 /* LaunchScreen.storyboard */,
+				E3ADDEFA1D34221500E36034 /* Info.plist */,
+			);
+			path = Plants;
+			sourceTree = "<group>";
+		};
+		E3ADDF021D34221500E36034 /* PlantsTests */ = {
+			isa = PBXGroup;
+			children = (
+				E3ADDF031D34221500E36034 /* PlantsTests.swift */,
+				E3ADDF051D34221500E36034 /* Info.plist */,
+			);
+			path = PlantsTests;
+			sourceTree = "<group>";
+		};
+		E3ADDF0D1D34221500E36034 /* PlantsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E3ADDF0E1D34221500E36034 /* PlantsUITests.swift */,
+				E3ADDF101D34221500E36034 /* Info.plist */,
+			);
+			path = PlantsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3ADDEE61D34221500E36034 /* Plants */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3ADDF131D34221500E36034 /* Build configuration list for PBXNativeTarget "Plants" */;
+			buildPhases = (
+				65CC66C717750CEEE5F28462 /* [CP] Check Pods Manifest.lock */,
+				E3ADDEE31D34221500E36034 /* Sources */,
+				E3ADDEE41D34221500E36034 /* Frameworks */,
+				E3ADDEE51D34221500E36034 /* Resources */,
+				E4527C66E35D92B18DD78646 /* [CP] Embed Pods Frameworks */,
+				E8B93D0EF26F5590158EF94B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Plants;
+			productName = Plants;
+			productReference = E3ADDEE71D34221500E36034 /* Plants.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E3ADDEFE1D34221500E36034 /* PlantsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3ADDF161D34221500E36034 /* Build configuration list for PBXNativeTarget "PlantsTests" */;
+			buildPhases = (
+				9F12F78DC4AFBD3183681739 /* [CP] Check Pods Manifest.lock */,
+				E3ADDEFB1D34221500E36034 /* Sources */,
+				E3ADDEFC1D34221500E36034 /* Frameworks */,
+				E3ADDEFD1D34221500E36034 /* Resources */,
+				5366E6849649ECDB93E570AB /* [CP] Embed Pods Frameworks */,
+				9FF07B31E6471407D5722DD3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3ADDF011D34221500E36034 /* PBXTargetDependency */,
+			);
+			name = PlantsTests;
+			productName = PlantsTests;
+			productReference = E3ADDEFF1D34221500E36034 /* PlantsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E3ADDF091D34221500E36034 /* PlantsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3ADDF191D34221500E36034 /* Build configuration list for PBXNativeTarget "PlantsUITests" */;
+			buildPhases = (
+				F6C8B2A81A63824E4DB1C78E /* [CP] Check Pods Manifest.lock */,
+				E3ADDF061D34221500E36034 /* Sources */,
+				E3ADDF071D34221500E36034 /* Frameworks */,
+				E3ADDF081D34221500E36034 /* Resources */,
+				9A2765F049608200573C31A9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3ADDF0C1D34221500E36034 /* PBXTargetDependency */,
+			);
+			name = PlantsUITests;
+			productName = PlantsUITests;
+			productReference = E3ADDF0A1D34221500E36034 /* PlantsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3ADDEDF1D34221500E36034 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Юлия Хазиева";
+				TargetAttributes = {
+					E3ADDEE61D34221500E36034 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9EX7DQFL86;
+					};
+					E3ADDEFE1D34221500E36034 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9EX7DQFL86;
+						TestTargetID = E3ADDEE61D34221500E36034;
+					};
+					E3ADDF091D34221500E36034 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9EX7DQFL86;
+						TestTargetID = E3ADDEE61D34221500E36034;
+					};
+				};
+			};
+			buildConfigurationList = E3ADDEE21D34221500E36034 /* Build configuration list for PBXProject "Planty Plants" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E3ADDEDE1D34221500E36034;
+			productRefGroup = E3ADDEE81D34221500E36034 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3ADDEE61D34221500E36034 /* Plants */,
+				E3ADDEFE1D34221500E36034 /* PlantsTests */,
+				E3ADDF091D34221500E36034 /* PlantsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3ADDEE51D34221500E36034 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3756F101D5406B900075366 /* correctsoil.caf in Resources */,
+				E3ADDEED1D34221500E36034 /* GameScene.sks in Resources */,
+				E3756F131D5406B900075366 /* correctcrow.caf in Resources */,
+				E3756F121D5406B900075366 /* water.caf in Resources */,
+				E3FE885A1D46C2E700839026 /* Garden.sks in Resources */,
+				E3756F141D5406B900075366 /* seed click.caf in Resources */,
+				E3756F071D529C4E00075366 /* sfvsb.sks in Resources */,
+				E3ADDEF91D34221500E36034 /* LaunchScreen.storyboard in Resources */,
+				E378EBF51D528381009A416F /* spark.png in Resources */,
+				E378EBF71D528546009A416F /* showerEffect.sks in Resources */,
+				E3ADDEF41D34221500E36034 /* Main.storyboard in Resources */,
+				E3756F191D5500C700075366 /* break.caf in Resources */,
+				E3756F151D5406B900075366 /* complete.caf in Resources */,
+				E3756F051D529C3F00075366 /* MyParticle.sks in Resources */,
+				E3756F091D529D8200075366 /* fert effect.sks in Resources */,
+				E3756F001D529C1200075366 /* frfr.sks in Resources */,
+				E3756F181D5500C700075366 /* dry.caf in Resources */,
+				E3756F111D5406B900075366 /* light.caf in Resources */,
+				E3041D011D401E4E00F2E1FF /* levelUp.sks in Resources */,
+				E3B6D6091D42A0D600938072 /* threeConveyers.sks in Resources */,
+				E3756F031D529C2D00075366 /* levelupeffect.sks in Resources */,
+				E3756F011D529C1200075366 /* bokeh.png in Resources */,
+				E351CD5F1D5A4E4C003DFD60 /* Assets.xcassets in Resources */,
+				E3756F1B1D550A8F00075366 /* correctbreak.caf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3ADDEFD1D34221500E36034 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3ADDF081D34221500E36034 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5366E6849649ECDB93E570AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlantsTests/Pods-PlantsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65CC66C717750CEEE5F28462 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9A2765F049608200573C31A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlantsUITests/Pods-PlantsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F12F78DC4AFBD3183681739 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9FF07B31E6471407D5722DD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlantsTests/Pods-PlantsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4527C66E35D92B18DD78646 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Plants/Pods-Plants-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8B93D0EF26F5590158EF94B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Plants/Pods-Plants-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6C8B2A81A63824E4DB1C78E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3ADDEE31D34221500E36034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3FE885C1D46C6B500839026 /* Garden.swift in Sources */,
+				E3ADDEEF1D34221500E36034 /* GameScene.swift in Sources */,
+				E3041CFD1D3EC5CA00F2E1FF /* GameManager.swift in Sources */,
+				E335BA0B1D41336E00B62A5C /* levelUp.swift in Sources */,
+				E3ADDEF11D34221500E36034 /* GameViewController.swift in Sources */,
+				E3B6D60B1D42D72500938072 /* aloe.swift in Sources */,
+				E3079F651D35559800A393C2 /* Plant.swift in Sources */,
+				E3079F6B1D357E0600A393C2 /* hensAndChicks.swift in Sources */,
+				E3ADDEEB1D34221500E36034 /* AppDelegate.swift in Sources */,
+				E3B6D60D1D42D73800938072 /* englishIvy.swift in Sources */,
+				E3B6D60F1D42D8FD00938072 /* jadePlant.swift in Sources */,
+				E3079F691D357DF100A393C2 /* cereusPeruvianus.swift in Sources */,
+				E3ADDF1D1D342F0100E36034 /* MSButtonNode.swift in Sources */,
+				E3B6D6111D42D91300938072 /* rubberTree.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3ADDEFB1D34221500E36034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3ADDF041D34221500E36034 /* PlantsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3ADDF061D34221500E36034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3ADDF0F1D34221500E36034 /* PlantsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E3ADDF011D34221500E36034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3ADDEE61D34221500E36034 /* Plants */;
+			targetProxy = E3ADDF001D34221500E36034 /* PBXContainerItemProxy */;
+		};
+		E3ADDF0C1D34221500E36034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3ADDEE61D34221500E36034 /* Plants */;
+			targetProxy = E3ADDF0B1D34221500E36034 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E3ADDEF21D34221500E36034 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3ADDEF31D34221500E36034 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E3ADDEF71D34221500E36034 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3ADDEF81D34221500E36034 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E3ADDF111D34221500E36034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E3ADDF121D34221500E36034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3ADDF141D34221500E36034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C26A51887219B069B7410699 /* Pods-Plants.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Plants",
+				);
+				INFOPLIST_FILE = Plants/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Plants;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/BridgingHeader.h";
+			};
+			name = Debug;
+		};
+		E3ADDF151D34221500E36034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9AF46ABEA051D1206589249 /* Pods-Plants.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Plants",
+				);
+				INFOPLIST_FILE = Plants/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Plants;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/BridgingHeader.h";
+			};
+			name = Release;
+		};
+		E3ADDF171D34221500E36034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3B2289D6CD1B16F463DBC57 /* Pods-PlantsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PlantsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.PlantsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plants.app/Plants";
+			};
+			name = Debug;
+		};
+		E3ADDF181D34221500E36034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1FC26EC1DF0029B5B368ECE /* Pods-PlantsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PlantsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.PlantsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plants.app/Plants";
+			};
+			name = Release;
+		};
+		E3ADDF1A1D34221500E36034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65A825F48CDA1E8F14CF31EB /* Pods-PlantsUITests.debug.xcconfig */;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PlantsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.PlantsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Plants;
+			};
+			name = Debug;
+		};
+		E3ADDF1B1D34221500E36034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 756065658BFEDEEF772FCCB0 /* Pods-PlantsUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = PlantsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.PlantsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Plants;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3ADDEE21D34221500E36034 /* Build configuration list for PBXProject "Planty Plants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3ADDF111D34221500E36034 /* Debug */,
+				E3ADDF121D34221500E36034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3ADDF131D34221500E36034 /* Build configuration list for PBXNativeTarget "Plants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3ADDF141D34221500E36034 /* Debug */,
+				E3ADDF151D34221500E36034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3ADDF161D34221500E36034 /* Build configuration list for PBXNativeTarget "PlantsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3ADDF171D34221500E36034 /* Debug */,
+				E3ADDF181D34221500E36034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3ADDF191D34221500E36034 /* Build configuration list for PBXNativeTarget "PlantsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3ADDF1A1D34221500E36034 /* Debug */,
+				E3ADDF1B1D34221500E36034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E3ADDEDF1D34221500E36034 /* Project object */;
+}
