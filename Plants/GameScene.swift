@@ -187,6 +187,9 @@
                 self.FAQsquare.hidden = true
                 pauseFog.hidden = true
                 gameState = .play
+                if userLevel == 0 {
+                    gameState = .tutorial
+                }
                 playButton.hidden = true
                 playSquare.hidden = true
             }
@@ -336,22 +339,32 @@
             pauseButton.selectedHandler = {
                 if self.liftmoving {
                     let liftCopy = self.childNodeWithName("liftCopy") as! SKSpriteNode
+                    if liftCopy.position.y < 149 {
                     liftCopy.removeAllActions()
-                }
-                if self.gameState != .pause {
+                    if self.gameState != .pause {
                         self.pauseScreen.runAction(SKAction.moveBy(CGVector(dx: -90, dy: 0), duration: 0.5))
                         self.gameState = .pause
                         for plant in self.plantsInTheScene {
                             plant.physicsBody?.pinned = true
                         }
                         self.pauseFog.hidden = false
+                    }
+                }
+
+            } else {
+                    if self.gameState != .pause {
+                        self.pauseScreen.runAction(SKAction.moveBy(CGVector(dx: -90, dy: 0), duration: 0.5))
+                        self.gameState = .pause
+                        for plant in self.plantsInTheScene {
+                            plant.physicsBody?.pinned = true
+                        }
+                        self.pauseFog.hidden = false
+                    }
                 }
             }
             
             resumeButton.selectedHandler = {
-                if self.userLevel == 0 {
-                    self.gameState = .tutorial
-                }
+                
                 self.liftAfterPause()
                 self.FAQsquare.hidden = true
                 self.settingsSquare.hidden = true
@@ -363,6 +376,9 @@
                 self.pauseFog.hidden = true
                 self.pauseScreen.runAction(SKAction.moveBy(CGVector(dx: 90, dy: 0), duration: 0.5))
                 self.gameState = .play
+                if self.userLevel == 0 {
+                    self.gameState = .tutorial
+                }
                 
             }
             
@@ -382,10 +398,14 @@
                 scene.scaleMode = .AspectFill
                 skView.presentScene(scene)
                 self.pauseScreen.hidden = true
-                self.gameState = .play
+                
                 if self.userLevel == 0 {
                     self.gameState = .tutorial
+                } else {
+                    self.gameState = .play
                 }
+                print(self.userLevel)
+                print(self.gameState)
             }
             creditsButton.selectedHandler = {
                 self.FAQsquare.hidden = true
@@ -400,6 +420,9 @@
                 skView.presentScene(scene)
                 self.pauseScreen.hidden = true
                 self.gameState = .play
+                if self.userLevel == 0 {
+                    self.gameState = .tutorial
+                }
             }
             
             
@@ -627,6 +650,7 @@
                             continue
                         } else if plant.position.x < 160 && plant.currentTexture < 3 {
                             waterEmitter.removeAllActions()
+                            print(gameState)
                             dropPlant(plant)
                             plantsInTheScene.removeAtIndex(i)
                             continue
@@ -678,7 +702,7 @@
         func liftPlant() {
             liftTimer = 0.0
             let liftUp = SKAction.moveBy(CGVector(dx: 0, dy: 125), duration: 1.5)
-            let wait = SKAction.waitForDuration(0.7)
+            let wait = SKAction.waitForDuration(1)
             let copySequence = SKAction.sequence([liftUp, wait, disappear])
             let liftCopy = lift.copy() as! SKSpriteNode
             liftCopy.name = "liftCopy"
@@ -694,10 +718,12 @@
         }
         
         func liftAfterPause() {
+           
             if liftmoving {
                 let liftCopy = self.childNodeWithName("liftCopy") as! SKSpriteNode
+                print(liftCopy.position.y)
                 liftCopy.physicsBody?.pinned = false
-                let dy = 148.5 - liftCopy.position.y
+                let dy = 150 - liftCopy.position.y
                 let duration = 1.5 / 125 * dy
                 let liftUp = SKAction.moveBy(CGVector(dx: 0, dy: dy), duration: Double(duration))
                 let wait = SKAction.waitForDuration(0.7)
@@ -721,8 +747,10 @@
             if (nodeA.name == "seedContact" && nodeB.name != "seed" ||  nodeB.name == "seedContact" && nodeA.name != "seed") &&  pulseSeedTimer > 4 {
                     pulseSeedTimer = 0.0
                     pulse(seedEmitter)
+                print(String(nodeA) + " " + String(nodeB))
             }
             if (nodeA.name == "waterContact" || nodeB.name == "waterContact") && pulseWaterTimer > 4 {
+                print(String(nodeA) + " " + String(nodeB))
                     pulseWaterTimer = 0.0
                 if userLevel > 1 {
                     pulse(waterEmitter)
@@ -730,10 +758,12 @@
             } else if (nodeA.name == "lightContact" || nodeB.name == "lightContact") && pulseLightTimer > 4{
                 pulseLightTimer = 0.0
                 pulse(lightEmitter)
+                print(String(nodeA) + " " + String(nodeB))
             } else if (nodeA.name == "fertContact" || nodeB.name == "fertContact") && pulseFertilizerTimer > 4 {
                 pulseFertilizerTimer = 0.0
                 if userLevel > 3 {
                 pulse(fertelizeEmitter)
+                print(String(nodeA) + " " + String(nodeB))
                 }
             }
 
