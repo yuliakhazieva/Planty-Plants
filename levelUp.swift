@@ -51,11 +51,19 @@ class levelUp: SKScene {
             print("game level:\(GameManager.sharedInstance.level)")
             GameManager.sharedInstance.restart = true
             let skView = self.view as SKView!
-            let scene = GameScene(fileNamed:"GameScene") as GameScene!
-            scene.scaleMode = .AspectFit
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            skView.presentScene(scene)
+            if GameManager.sharedInstance.level < 7 {
+                let scene = GameScene(fileNamed:"GameScene") as GameScene!
+                scene.scaleMode = .AspectFit
+                skView.showsFPS = true
+                skView.showsNodeCount = true
+                skView.presentScene(scene)
+            } else {
+                let scene = GameScene(fileNamed:"threeConveyers") as GameScene!
+                scene.scaleMode = .AspectFit
+                skView.showsFPS = true
+                skView.showsNodeCount = true
+                skView.presentScene(scene)
+            }
         }
 
         
@@ -80,9 +88,7 @@ class levelUp: SKScene {
         case 6:
             gift.hidden = false
         case 7:
-            GameManager.sharedInstance.level = 6
-            normalSquare.hidden = true
-            theEndSquare.hidden = false
+            break
             
 //        case 8:
 //            unlockAPlant()

@@ -16,6 +16,9 @@
 		E3079F691D357DF100A393C2 /* cereusPeruvianus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3079F681D357DF100A393C2 /* cereusPeruvianus.swift */; };
 		E3079F6B1D357E0600A393C2 /* hensAndChicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3079F6A1D357E0600A393C2 /* hensAndChicks.swift */; };
 		E335BA0B1D41336E00B62A5C /* levelUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335BA0A1D41336E00B62A5C /* levelUp.swift */; };
+		E3506D651D5BAC69001A7CDF /* threeConveyers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3506D641D5BAC69001A7CDF /* threeConveyers.swift */; };
+		E3506D671D5D1854001A7CDF /* oneConveyerbelt.sks in Resources */ = {isa = PBXBuildFile; fileRef = E3506D661D5D1854001A7CDF /* oneConveyerbelt.sks */; };
+		E3506D691D5D1EEC001A7CDF /* oneConveyerbelt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3506D681D5D1EEC001A7CDF /* oneConveyerbelt.swift */; };
 		E351CD5F1D5A4E4C003DFD60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E351CD5E1D5A4E4C003DFD60 /* Assets.xcassets */; };
 		E371D4031D55551700902816 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371D4021D55551700902816 /* Chartboost.framework */; };
 		E371D4051D55570500902816 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371D4041D55570500902816 /* UIKit.framework */; };
@@ -90,6 +93,9 @@
 		E3079F681D357DF100A393C2 /* cereusPeruvianus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = cereusPeruvianus.swift; path = ../cereusPeruvianus.swift; sourceTree = "<group>"; };
 		E3079F6A1D357E0600A393C2 /* hensAndChicks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hensAndChicks.swift; path = ../hensAndChicks.swift; sourceTree = "<group>"; };
 		E335BA0A1D41336E00B62A5C /* levelUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = levelUp.swift; sourceTree = "<group>"; };
+		E3506D641D5BAC69001A7CDF /* threeConveyers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = threeConveyers.swift; sourceTree = "<group>"; };
+		E3506D661D5D1854001A7CDF /* oneConveyerbelt.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = oneConveyerbelt.sks; sourceTree = "<group>"; };
+		E3506D681D5D1EEC001A7CDF /* oneConveyerbelt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneConveyerbelt.swift; sourceTree = "<group>"; };
 		E351CD5E1D5A4E4C003DFD60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E371D4021D55551700902816 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
 		E371D4041D55570500902816 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -205,6 +211,7 @@
 				E3041D001D401E4E00F2E1FF /* levelUp.sks */,
 				E335BA0A1D41336E00B62A5C /* levelUp.swift */,
 				E3B6D6081D42A0D600938072 /* threeConveyers.sks */,
+				E3506D641D5BAC69001A7CDF /* threeConveyers.swift */,
 				E3ADDEE91D34221500E36034 /* Plants */,
 				E3ADDF021D34221500E36034 /* PlantsTests */,
 				E3ADDF0D1D34221500E36034 /* PlantsUITests */,
@@ -237,6 +244,8 @@
 				E3ADDF1C1D342F0100E36034 /* MSButtonNode.swift */,
 				E3ADDEEA1D34221500E36034 /* AppDelegate.swift */,
 				E3ADDEEC1D34221500E36034 /* GameScene.sks */,
+				E3506D661D5D1854001A7CDF /* oneConveyerbelt.sks */,
+				E3506D681D5D1EEC001A7CDF /* oneConveyerbelt.swift */,
 				E3756F161D5500C700075366 /* dry.caf */,
 				E3756F171D5500C700075366 /* break.caf */,
 				E3756F0A1D5406B900075366 /* correctsoil.caf */,
@@ -414,6 +423,7 @@
 				E3ADDEF41D34221500E36034 /* Main.storyboard in Resources */,
 				E3756F191D5500C700075366 /* break.caf in Resources */,
 				E3756F151D5406B900075366 /* complete.caf in Resources */,
+				E3506D671D5D1854001A7CDF /* oneConveyerbelt.sks in Resources */,
 				E3756F051D529C3F00075366 /* MyParticle.sks in Resources */,
 				E3756F091D529D8200075366 /* fert effect.sks in Resources */,
 				E3756F001D529C1200075366 /* frfr.sks in Resources */,
@@ -574,7 +584,9 @@
 			files = (
 				E3FE885C1D46C6B500839026 /* Garden.swift in Sources */,
 				E3ADDEEF1D34221500E36034 /* GameScene.swift in Sources */,
+				E3506D651D5BAC69001A7CDF /* threeConveyers.swift in Sources */,
 				E3041CFD1D3EC5CA00F2E1FF /* GameManager.swift in Sources */,
+				E3506D691D5D1EEC001A7CDF /* oneConveyerbelt.swift in Sources */,
 				E335BA0B1D41336E00B62A5C /* levelUp.swift in Sources */,
 				E3ADDEF11D34221500E36034 /* GameViewController.swift in Sources */,
 				E3B6D60B1D42D72500938072 /* aloe.swift in Sources */,

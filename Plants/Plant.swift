@@ -20,6 +20,7 @@ class Plant: SKSpriteNode {
     var needsLight = true
     var currentTexture = 0
     var isOnLift = false
+    var isOnLift2 = false
     var finished = false
     var fixTexture = false
     var textures: [SKTexture] = []

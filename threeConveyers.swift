@@ -4,8 +4,8 @@
     //
     //  Created by Юлия Хазиева on 11.07.16.
     //  Copyright (c) 2016 Юлия Хазиева. All rights reserved.
-
-   
+    
+    
     //  todo: garden
     //  todo: 3 conveyers
     //  todo: store
@@ -14,14 +14,11 @@
     //  todo: gameover sound
     //  todo: playbuttonsound
     //  todo: levelup sound
-
-
+    
+    
     import Mixpanel
     import SpriteKit
-    enum GameState {
-        case pause, play, tutorial, levelUp, gameOver, garden
-    }
-    class GameScene: SKScene, SKPhysicsContactDelegate {
+    class threeConveyers: SKScene, SKPhysicsContactDelegate {
         
         /*constants*/
         let fixedDelta: CFTimeInterval = 1.0/60.0
@@ -65,7 +62,7 @@
         var creditsSquare: SKSpriteNode!
         var levelUseless: SKLabelNode!
         var playSquare: SKSpriteNode!
-      //  var seedContact: SKSpriteNode!
+        //  var seedContact: SKSpriteNode!
         var lightContact: SKSpriteNode!
         var waterContact: SKSpriteNode!
         var fertContact: SKSpriteNode!
@@ -79,13 +76,14 @@
         var offLabel: SKLabelNode!
         var FAQButton: MSButtonNode!
         var FAQsquare: SKSpriteNode!
+        var lift2: SKSpriteNode!
         
         /*timers*/
         var waterTimer = 2.0
         var lightTimer = 2.0
         var fertelizerTimer = 2.0
         var seedTimer = 2.0
-        var liftTimer = 2.0
+
         var spawnEvery = 0.0
         var spawnTimer = 6.0
         var pulseWaterTimer = 4.0
@@ -93,7 +91,7 @@
         var pulseFertilizerTimer = 4.0
         var pulseSeedTimer = 4.0
         /*plant instances*/
-       // var cereusPeruvianusInstance: cereusPeruvianus!
+        // var cereusPeruvianusInstance: cereusPeruvianus!
         var hensAndChicksInstance: hensAndChicks!
         
         /*arrays*/
@@ -113,25 +111,13 @@
         var stagesCount = 4
         var soundOn = 1
         var liftmoving = false
+        var lift2moving = false
         
         override func didMoveToView(view: SKView) {
             
-            
+            print(gameState)
             
             userLevel = GameManager.sharedInstance.level
-            if userLevel > 6 {
-                let scene = threeConveyers(fileNamed:"threeConveyers") as threeConveyers!
-                let skView = self.view as SKView!
-                scene.scaleMode = .AspectFill
-                skView.presentScene(scene)
-            }
-            if userLevel == 0 {
-                let scene = oneConveyerbelt(fileNamed:"oneConveyerbelt") as oneConveyerbelt!
-                let skView = self.view as SKView!
-                scene.scaleMode = .AspectFill
-                skView.presentScene(scene)
-            }
-
             /*code connections*/
             levelUpNotification = childNodeWithName("levelUpNotification") as! SKLabelNode
             levelUseless = childNodeWithName("levelUseless") as! SKLabelNode
@@ -181,11 +167,12 @@
             coinsPic = childNodeWithName("//coinsPic") as! SKSpriteNode
             FAQButton = childNodeWithName("//FAQButton") as! MSButtonNode
             FAQsquare = childNodeWithName("FAQSquare") as! SKSpriteNode
+            lift2 = childNodeWithName("lift2") as! SKSpriteNode
             
             self.levelUpNotification.hidden = true
-        
+            
             soundOn = GameManager.sharedInstance.soundOn
-       
+            
             if soundOn == 0 {
                 onOff.position.x = 35.056999206543
             }
@@ -227,7 +214,12 @@
             tryAgainButton.hidden = true
             creditsSquare.hidden = true
             
-
+            if userLevel == 1 || userLevel == 0 {
+                waterEmitter.hidden = true
+            } else {
+                waterEmitter.hidden = false
+            }
+            
             if userLevel < 4 {
                 fertelizeEmitter.hidden = true
             } else {
@@ -239,7 +231,7 @@
                 self.areYouSureSquare.hidden = true
                 self.FAQsquare.hidden = true
                 self.creditsSquare.hidden = true
-
+                
             }
             
             FAQButton.selectedHandler = {
@@ -271,12 +263,12 @@
                         self.runAction(SKAction.playSoundFileNamed("seed click", waitForCompletion: false))
                     }
                     if self.userLevel == 0 {
-                      
+                        
                         self.pauseFog.hidden = true
                         self.seedEmitter.zPosition = 0
                     }
                     self.seedTimer = 0.0
-
+                    
                     self.addChild(self.seed)
                     self.seed.position = CGPoint(x: 401, y: 127)
                     self.seed.hidden = false
@@ -301,14 +293,14 @@
                         self.runAction(SKAction.playSoundFileNamed("water", waitForCompletion: false))
                     }
                     self.waterTimer = 0.0
-                   self.addChild(self.water)
-               //     self.water.zPosition = 1
+                    self.addChild(self.water)
+                    //     self.water.zPosition = 1
                 }
             }
             
             fertelizeEmitter.selectedHandler = {
                 let particles = SKEmitterNode(fileNamed: "fert effect")!
-               
+                
                 /* Convert node location (currently inside Level 1, to scene space) */
                 particles.position = CGPoint(x: 390, y: 254)
                 
@@ -317,14 +309,14 @@
                 particles.physicsBody?.contactTestBitMask = 0
                 /* Add particles to scene */
                 self.addChild(particles)
-
+                
                 if self.fertelizerTimer > 1.5 {
                     if self.soundOn == 1 {
                         self.runAction(SKAction.playSoundFileNamed("correctsoil", waitForCompletion: false))
                     }
                     self.fertelizerTimer = 0.0
                     self.addChild(self.fertelizer)
-           //         self.fertelizer.zPosition = 1
+                    //         self.fertelizer.zPosition = 1
                 }
             }
             
@@ -337,29 +329,45 @@
                         self.pauseFog.hidden = true
                         self.lightEmitter.zPosition = 1
                     }
-                 //   self.light.zPosition = 1
+                    //   self.light.zPosition = 1
                     self.lightTimer = 0.0
-        //            self.light.zPosition = 1
+                    //            self.light.zPosition = 1
                     self.addChild(self.light)
                 }
             }
             
             pauseButton.selectedHandler = {
-                if self.liftmoving {
-                    let liftCopy = self.childNodeWithName("liftCopy") as! SKSpriteNode
-                    if liftCopy.position.y < 149 {
-                    liftCopy.removeAllActions()
-                    if self.gameState != .pause {
-                        self.pauseScreen.runAction(SKAction.moveBy(CGVector(dx: -90, dy: 0), duration: 0.5))
-                        self.gameState = .pause
-                        for plant in self.plantsInTheScene {
-                            plant.physicsBody?.pinned = true
+                if self.liftmoving || self.lift2moving {
+                    if self.liftmoving {
+                        let liftCopy = self.childNodeWithName("liftCopy") as! SKSpriteNode
+                        if liftCopy.position.y < 149 {
+                            liftCopy.removeAllActions()
+                            if self.gameState != .pause {
+                                self.pauseScreen.runAction(SKAction.moveBy(CGVector(dx: -90, dy: 0), duration: 0.5))
+                                self.gameState = .pause
+                                for plant in self.plantsInTheScene {
+                                    plant.physicsBody?.pinned = true
+                                }
+                                self.pauseFog.hidden = false
+                            }
                         }
-                        self.pauseFog.hidden = false
                     }
-                }
+                    if self.lift2moving {
+                        let liftCopy2 = self.childNodeWithName("liftCopy2") as! SKSpriteNode
+                        if liftCopy2.position.y < 149 {
+                            liftCopy2.removeAllActions()
+                            if self.gameState != .pause {
+                                self.pauseScreen.runAction(SKAction.moveBy(CGVector(dx: -90, dy: 0), duration: 0.5))
+                                self.gameState = .pause
+                                for plant in self.plantsInTheScene {
+                                    plant.physicsBody?.pinned = true
+                                }
+                                self.pauseFog.hidden = false
+                            }
+                        }
 
-            } else {
+                    }
+                } else {
                     if self.gameState != .pause {
                         self.pauseScreen.runAction(SKAction.moveBy(CGVector(dx: -90, dy: 0), duration: 0.5))
                         self.gameState = .pause
@@ -374,6 +382,7 @@
             resumeButton.selectedHandler = {
                 
                 self.liftAfterPause()
+                self.liftAfterPause2()
                 self.FAQsquare.hidden = true
                 self.settingsSquare.hidden = true
                 self.creditsSquare.hidden = true
@@ -412,7 +421,7 @@
                 } else {
                     self.gameState = .play
                 }
-              
+                
             }
             creditsButton.selectedHandler = {
                 self.FAQsquare.hidden = true
@@ -439,8 +448,8 @@
                     self.pauseFog.hidden = true
                     self.playButton.hidden = true
                     self.playSquare.hidden = true
-                        if self.userLevel != 0 {
-                    self.gameState = .play
+                    if self.userLevel != 0 {
+                        self.gameState = .play
                     } else {
                         self.gameState = .tutorial
                     }
@@ -521,7 +530,7 @@
                 lightTimer += fixedDelta
                 fertelizerTimer += fixedDelta
                 seedTimer += fixedDelta
-                liftTimer += fixedDelta
+
                 spawnTimer += fixedDelta
                 pulseWaterTimer += fixedDelta
                 pulseLightTimer += fixedDelta
@@ -556,7 +565,7 @@
             if difficulty == 3 {
                 var randomSpawn = (Double)(arc4random_uniform((UInt32)(3))) + 4.0
                 spawnEvery = randomSpawn
-               
+                
             }
             let randomNumber = (Int)(arc4random_uniform((UInt32)(unlockedPlants.count)))
             switch unlockedPlants[randomNumber] {
@@ -593,63 +602,14 @@
             newPlant.zPosition = 1
             plantsInTheScene.append(newPlant)
             newPlant.physicsBody?.allowsRotation = false
-          //  newPlant.setScale(1.1)
+            //  newPlant.setScale(1.1)
             self.addChild(newPlant)
         }
         func newMovePlants() {
-
-            if gameState == .tutorial {
+            
                 var i = 0
                 for plant in plantsInTheScene {
-                    if plant.position.x < 340 && plant.currentTexture < 1 {
-                        dropPlant(plant)
-                        plantsInTheScene.removeAtIndex(i)
-                        spawnAPlant()
-                        seedEmitter.removeAllActions()
-                        continue
-                    } else if plant.position.y < 65 {
-                       
-                        if plant.position.x > 55 {
-                            plant.physicsBody?.velocity = CGVector(dx: -50, dy: 0)
-                        }  else if plant.position.x < 58 {
-                            if plant.isOnLift == false {
-                                plant.isOnLift = true
-                                self.liftPlant()
-                            }
-                        }
-                        if plant.hasSeed == false  {
-                            plant.zPosition = 3
-                            seedEmitter.zPosition = 3
-                            seed.zPosition = 3
-                        }
-                    } else if plant.position.y > 165 {
-                        if plant.position.x > 245 && plant.currentTexture < 5 {
-                            
-                            dropPlant(plant)
-                            plantsInTheScene.removeAtIndex(i)
-                            lightEmitter.removeAllActions()
-                            spawnAPlant()
-                            continue
-                        }  else if plant.position.x < 532 {
-                            plant.physicsBody?.velocity = CGVector(dx: 50, dy: 0)
-                        }  else if plant.position.x >= 532 {
-                            if plant.finished == false {
-                                plant.finished = true
-                                takePlant(plant)
-                            }
-                        }
-                        if plant.wasShinedAt == false {
-                            plant.zPosition = 3
-                            lightEmitter.zPosition = 3
-                        }
-                    }
-                    i += 1
-                }
-            } else {
-                var i = 0
-                for plant in plantsInTheScene {
-                  
-                    if plant.position.y < 65 {
+                    if plant.position.y < 73 {
                         if plant.position.x < 340 && plant.currentTexture < 1 {
                             seedEmitter.removeAllActions()
                             dropPlant(plant)
@@ -657,7 +617,6 @@
                             continue
                         } else if plant.position.x < 160 && plant.currentTexture < 3 {
                             waterEmitter.removeAllActions()
-                        
                             dropPlant(plant)
                             plantsInTheScene.removeAtIndex(i)
                             continue
@@ -669,7 +628,7 @@
                                 self.liftPlant()
                             }
                         }
-                    } else if plant.position.y > 165 {
+                    } else if plant.position.y < 166 {
                         if plant.position.x > 245 && plant.currentTexture < 5 {
                             lightEmitter.removeAllActions()
                             dropPlant(plant)
@@ -679,20 +638,36 @@
                             dropPlant(plant)
                             plantsInTheScene.removeAtIndex(i)
                             continue
-                        } else if plant.position.x < 532 {
+                        } else if plant.position.x < 534 {
                             plant.physicsBody?.velocity = CGVector(dx: 50, dy: 0)
-                        } else {
-                            if plant.finished == false {
-                                plant.finished = true
-                                takePlant(plant)
+                        } else if plant.position.x > 531 {
+                            if plant.isOnLift2 == false {
+                                plant.isOnLift2 = true
+                                self.liftPlant2()
                             }
                         }
                     }
                     i += 1
                 }
-            }
         }
         
+        func liftPlant2() {
+
+            let liftUp = SKAction.moveBy(CGVector(dx: 0, dy: 100), duration: 1.1)
+            let wait = SKAction.waitForDuration(1)
+            let copySequence = SKAction.sequence([liftUp, wait, disappear])
+            let liftCopy2 = lift2.copy() as! SKSpriteNode
+            liftCopy2.name = "liftCopy"
+            liftCopy2.physicsBody?.collisionBitMask = 2
+            liftCopy2.physicsBody?.categoryBitMask = 2
+            lift2.removeFromParent()
+            self.addChild(liftCopy2)
+            lift2moving = true
+            liftCopy2.runAction(copySequence, completion: {
+                self.lift2moving = false
+                self.addChild(self.lift2)
+            })
+        }
         
         func pulse(node: SKSpriteNode) {
             if userLevel == 0 {
@@ -703,12 +678,12 @@
             let pulse = SKAction.sequence([SKAction.scaleTo(0.8, duration: 0.5), SKAction.scaleTo(1, duration: 0.5)])
             let pulseForever = SKAction.repeatActionForever(pulse)
             node.runAction(pulseForever)
-
+            
         }
         
         func liftPlant() {
-            liftTimer = 0.0
-            let liftUp = SKAction.moveBy(CGVector(dx: 0, dy: 125), duration: 1.5)
+
+            let liftUp = SKAction.moveBy(CGVector(dx: 0, dy: 90), duration: 1.1)
             let wait = SKAction.waitForDuration(1)
             let copySequence = SKAction.sequence([liftUp, wait, disappear])
             let liftCopy = lift.copy() as! SKSpriteNode
@@ -725,10 +700,10 @@
         }
         
         func liftAfterPause() {
-           
+            
             if liftmoving {
                 let liftCopy = self.childNodeWithName("liftCopy") as! SKSpriteNode
-             
+                
                 liftCopy.physicsBody?.pinned = false
                 let dy = 150 - liftCopy.position.y
                 let duration = 1.5 / 125 * dy
@@ -742,6 +717,25 @@
             }
         }
         
+        func liftAfterPause2() {
+            
+            if lift2moving {
+                
+                let liftCopy2 = self.childNodeWithName("liftCopy2") as! SKSpriteNode
+                liftCopy2.physicsBody?.pinned = false
+                let dy = 214 - liftCopy2.position.y
+                let duration = 1.5 / 214 * dy
+                let liftUp = SKAction.moveBy(CGVector(dx: 0, dy: dy), duration: Double(duration))
+                let wait = SKAction.waitForDuration(0.7)
+                let copySequence = SKAction.sequence([liftUp, wait, disappear])
+                liftCopy2.runAction(copySequence, completion: {
+                    self.addChild(self.lift2)
+                    self.lift2moving = false
+                })
+            }
+        }
+
+        
         func didBeginContact(contact: SKPhysicsContact) {
             
             let contactA:SKPhysicsBody = contact.bodyA
@@ -750,31 +744,31 @@
             let nodeA = contactA.node!
             let nodeB = contactB.node!
             
-
+            
             if (nodeA.name == "seedContact" && nodeB.name != "seed" ||  nodeB.name == "seedContact" && nodeA.name != "seed") &&  pulseSeedTimer > 4 {
-                    pulseSeedTimer = 0.0
-                    pulse(seedEmitter)
-         
+                pulseSeedTimer = 0.0
+                pulse(seedEmitter)
+                
             }
             if (nodeA.name == "waterContact" || nodeB.name == "waterContact") && pulseWaterTimer > 4 {
-             
-                    pulseWaterTimer = 0.0
+                
+                pulseWaterTimer = 0.0
                 if userLevel > 1 {
                     pulse(waterEmitter)
                 }
             } else if (nodeA.name == "lightContact" || nodeB.name == "lightContact") && pulseLightTimer > 4{
                 pulseLightTimer = 0.0
                 pulse(lightEmitter)
-               
+                
             } else if (nodeA.name == "fertContact" || nodeB.name == "fertContact") && pulseFertilizerTimer > 4 {
                 pulseFertilizerTimer = 0.0
                 if userLevel > 3 {
-                pulse(fertelizeEmitter)
-     
+                    pulse(fertelizeEmitter)
+                    
                 }
             }
-
-
+            
+            
             
             if nodeA.name == "seed" && nodeB.name != "seedEmitter" {
                 nodeA.hidden = true
@@ -786,31 +780,31 @@
             
             if nodeA.name == "water" {
                 
-                    waterPlant(nodeB)
+                waterPlant(nodeB)
                 
             } else if nodeB.name == "water" {
                 
-                    waterPlant(nodeA)
+                waterPlant(nodeA)
                 
             }
             
             if nodeA.name == "light" {
                 
-                    shineLightAt(nodeB)
-               
+                shineLightAt(nodeB)
+                
             } else if nodeB.name == "light" {
                 
-                    shineLightAt(nodeA)
-              
+                shineLightAt(nodeA)
+                
             }
             
             if nodeA.name == "fertelizer"{
-               
-                    fertelize(nodeB)
+                
+                fertelize(nodeB)
                 
             } else if nodeB.name == "fertelizer" {
                 
-                    fertelize(nodeA)
+                fertelize(nodeA)
                 
             }
         }
@@ -830,7 +824,7 @@
             moneyLabel.text = String(coins)
             NSUserDefaults.standardUserDefaults().synchronize()
             GameManager.sharedInstance.saveData()
-                        plant.physicsBody?.affectedByGravity = false
+            plant.physicsBody?.affectedByGravity = false
             let moveOut = SKAction.moveBy(CGVector(dx:-50, dy: 0), duration: 0.5)
             let moveIn = SKAction.moveBy(CGVector(dx:50, dy: 0), duration: 0.8)
             let sequenceHand = SKAction.sequence([moveOut, moveIn])
@@ -889,23 +883,23 @@
                     self.runAction(SKAction.playSoundFileNamed("dry", waitForCompletion: false))
                 }
             }
-                plant.runAction(SKAction.animateWithTextures([plant.textures[plant.currentTexture]], timePerFrame: 0.5), completion: {
-                    plant.physicsBody?.collisionBitMask = 0
-                    let rotate = SKAction.rotateByAngle(0.5, duration: 0.5)
-                    let fall = SKAction.moveBy(CGVector(dx: -2, dy: -10), duration: 1)
-                    let fade = SKAction.fadeOutWithDuration(0.3)
-                    if self.soundOn == 1 {
-                        let breaksound = SKAction.playSoundFileNamed("correctbreak", waitForCompletion: false)
-                        let fadeOutSequence = SKAction.sequence([rotate, fall, self.disappear])
-                        plant.runAction(fadeOutSequence)
-                        plant.runAction(SKAction.sequence([fade, breaksound]))
-                    } else {
-                        let fadeOutSequence = SKAction.sequence([rotate, fall, self.disappear])
-                        plant.runAction(fadeOutSequence)
-                        plant.runAction(SKAction.sequence([fade]))
-                    }
-                    
-                })
+            plant.runAction(SKAction.animateWithTextures([plant.textures[plant.currentTexture]], timePerFrame: 0.5), completion: {
+                plant.physicsBody?.collisionBitMask = 0
+                let rotate = SKAction.rotateByAngle(0.5, duration: 0.5)
+                let fall = SKAction.moveBy(CGVector(dx: -2, dy: -10), duration: 1)
+                let fade = SKAction.fadeOutWithDuration(0.3)
+                if self.soundOn == 1 {
+                    let breaksound = SKAction.playSoundFileNamed("correctbreak", waitForCompletion: false)
+                    let fadeOutSequence = SKAction.sequence([rotate, fall, self.disappear])
+                    plant.runAction(fadeOutSequence)
+                    plant.runAction(SKAction.sequence([fade, breaksound]))
+                } else {
+                    let fadeOutSequence = SKAction.sequence([rotate, fall, self.disappear])
+                    plant.runAction(fadeOutSequence)
+                    plant.runAction(SKAction.sequence([fade]))
+                }
+                
+            })
             lives -= 1
             switch lives {
             case 1:
@@ -927,7 +921,7 @@
             default:
                 print("")
             }
-
+            
         }
         
         func plantSeed (node: SKNode) {
@@ -943,12 +937,12 @@
             } else {
                 plant.currentTexture += 1
             }
-        //    plant.setScale(1)
+            //    plant.setScale(1)
             plant.texture = plant.textures[plant.currentTexture]
             plant.size = (plant.texture!.size())
             plant.physicsBody = SKPhysicsBody(rectangleOfSize: (plant.size))
-        //    plant.setScale(1.1)
-           
+            //    plant.setScale(1.1)
+            
         }
         
         
@@ -962,11 +956,11 @@
             plant.wasWatered = true
             plant.water()
             plant.currentTexture += 2
-          //  plant.setScale(1)
+            //  plant.setScale(1)
             plant.texture = plant.textures[plant.currentTexture]
             plant.size = (plant.texture!.size())
             plant.physicsBody = SKPhysicsBody(rectangleOfSize: (plant.size))
-         //   plant.setScale(1.1)
+            //   plant.setScale(1.1)
         }
         
         func shineLightAt (node: SKNode) {
@@ -981,11 +975,11 @@
             if userLevel < 4 {
                 plant.currentTexture = (plant.textures.count - 1)
             }
-       //     plant.setScale(1)
+            //     plant.setScale(1)
             plant.texture = plant.textures[plant.currentTexture]
             plant.size = (plant.texture!.size())
             plant.physicsBody = SKPhysicsBody(rectangleOfSize: (plant.size))
-       //     plant.setScale(1.1)
+            //     plant.setScale(1.1)
         }
         
         func fertelize (node: SKNode) {
@@ -993,15 +987,16 @@
                 self.runAction(SKAction.playSoundFileNamed("correctcrow", waitForCompletion: false))
             }
             fertelizeEmitter.removeAllActions()
-
+            
             let plant = node as! Plant
             if plant.hasFertelizer == true {return}
             plant.fertelize()
             plant.currentTexture = plant.textures.count - 1
-        //    plant.setScale(1)
+            //    plant.setScale(1)
             plant.texture = plant.textures[plant.currentTexture]
             plant.size = (plant.texture!.size())
             plant.physicsBody = SKPhysicsBody(rectangleOfSize: (plant.size))
-         //   plant.setScale(1.1)
+            //   plant.setScale(1.1)
         }
     }
+
